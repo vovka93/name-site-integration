@@ -133,7 +133,7 @@
         }
       }
 
-      self::hook('crm.deal.productrows.set', [
+      return self::hook('crm.lead.productrows.set', [
         'id'   => $leadID,
         'rows' => $productrows
       ]);
