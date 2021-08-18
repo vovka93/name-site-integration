@@ -102,7 +102,7 @@
     }
 
     public static function new($title, $name, $lastName, $secondName, $phoneNumber, $email, $products = []) {
-      $contactID = self::findContact($phoneNumber);
+      $contactID = self::findContact($phoneNumber) || self::findContact(substr($phoneNumber, -10));
       if(!$contactID) {
         $contactID = self::newContact($name, $lastName, $secondName, $phoneNumber, $email);
       }
