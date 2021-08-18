@@ -1,6 +1,6 @@
 <?php
 
-  define('C_REST_WEB_HOOK_URL', 'https://dvernoybym.bitrix24.ua/rest/316/p7fzgwrgngl7pkfw/');
+  define('C_REST_WEB_HOOK_URL', '');
 
   require_once('./b24.php');
 
