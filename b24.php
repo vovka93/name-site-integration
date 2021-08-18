@@ -102,9 +102,12 @@
     }
 
     public static function new($title, $name, $lastName, $secondName, $phoneNumber, $email, $products = []) {
-      $contactID = self::findContact($phoneNumber) || self::findContact(substr($phoneNumber, -10));
+      $phoneNumber = preg_replace("/[^0-9]/", "", $phoneNumber);
+      $shortPhoneNumber = substr($phoneNumber, -10);
+      $longPhoneNumber = '38'.$shortPhoneNumber;
+      $contactID = self::findContact($longPhoneNumber) || self::findContact($shortPhoneNumber);
       if(!$contactID) {
-        $contactID = self::newContact($name, $lastName, $secondName, $phoneNumber, $email);
+        $contactID = self::newContact($name, $lastName, $secondName, $longPhoneNumber, $email);
       }
       $result = self::hook('crm.lead.add', [
         'fields' => [
