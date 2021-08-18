@@ -92,13 +92,13 @@
 
     private static function newProduct($product, $currencyID = 'UAH') {
       $result = self::hook('crm.product.add', [
-				'fields' => [
-					'NAME'        => $product['NAME'],
-					'CURRENCY_ID' => $currencyID,
-					'PRICE'       => $product['PRICE']
-				]
-			]);
-			return self::result($result);
+        'fields' => [
+          'NAME'        => $product['NAME'],
+          'CURRENCY_ID' => $currencyID,
+          'PRICE'       => $product['PRICE']
+        ]
+      ]);
+      return self::result($result);
     }
 
     public static function new($title, $name, $lastName, $secondName, $phoneNumber, $email, $products = []) {
